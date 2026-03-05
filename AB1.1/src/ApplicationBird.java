@@ -14,6 +14,16 @@ public class ApplicationBird {
      */
     static void main() {
 
-        //TODO: show how to use 'Bird'.
+        Vector2D startPos = new Vector2D(100,200);
+        Vector2D speed = new Vector2D(2,-1);
+        Bird bird = new Bird(startPos, speed);
+
+        System.out.println("Startposition: " + bird.getPos()); // [100, 200]
+        bird.update();
+        System.out.println("Neue Position: " + bird.getPos()); // [102, 199]
+        bird.update();
+        System.out.println("Neue Position: " + bird.getPos()); // [104, 198]
+
+
     }
 }

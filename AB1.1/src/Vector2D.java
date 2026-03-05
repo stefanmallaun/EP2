@@ -21,17 +21,19 @@ public class Vector2D {
     private double x;
     private double y;
 
+    //Constructor
     public Vector2D(double x, double y) {
         this.x = x;
         this.y = y;
     }
+    //toString zum Anzeigen der Vektoren in folgender Form:
     @Override
     public String toString(){
         return "[" + this.x + "," + this.y + "]";
     }
 
     //set new Coordinates vor Vector
-    public void newVector(double inputX, double inputY){
+    public void newCoordinates(double inputX, double inputY){
         this.x = inputX;
         this.y = inputY;
     }
@@ -70,14 +72,16 @@ public class Vector2D {
     //Vektor hat die gleiche Richtung wie original Vektor
     //Länge 1
     public void normalize(){
-        double length = Math.sqrt(Math.pow(this.x,2) + Math.pow(this.y,2));
+        //DRY Prinzip, andere Methode verwenden um nicht wieder die Länge auszurechnen
+        double length = length();
+        //Notfalls um den kompletten Bereich abzudecken > 1e-12 (Toleranz für Gleitkomma)
         if(length != 0){
             this.x /= length;
             this.y /= length;
         }
     }
 
-    public boolean nullVectorTest(){
+    public boolean isZero(){
         if(this.x == 0 && this.y == 0){
             return true;
         }else{

@@ -8,6 +8,7 @@
  */
 import java.util.Arrays;
 
+
 public class ApplicationVector2D {
 
     /**
@@ -17,36 +18,73 @@ public class ApplicationVector2D {
      */
     public static void main(String[] args) {
 
+        Vector2D v1 = new Vector2D(3,4);
+        Vector2D v2 = new Vector2D(1,-2);
+
+        /*
         double[] v1 = new double[] {3, 4};   // length = 5
         double[] v2 = new double[2];
         newCoordinates(v2, 1, -2);
+        */
 
+        System.out.println("v1 = " + v1);
+        System.out.println("v2 = " + v2);
+        /*
         System.out.println("v1 = " + Arrays.toString(v1));
         System.out.println("v2 = " + Arrays.toString(v2));
         System.out.println();
+        */
 
+        Vector2D sum = v1.sum(v2);
+        System.out.println("v1 + v2 = "+sum);
+        /*
         double[] sum = add(v1, v2);
         System.out.println("v1 + v2 = " + Arrays.toString(sum));
+        */
 
+        Vector2D diff = v1.diff(v2);
+        System.out.println("v1 - v2 = " + diff );
+        /*
         double[] diff = subtract(v1, v2);
         System.out.println("v1 - v2 = " + Arrays.toString(diff));
+        */
 
-        System.out.println("length(v1) = " + length(v1));
+        System.out.println("length(v1) = " + v1.length());
+        //System.out.println("length(v1) = " + length(v1));
 
+        double d = v1.distanceTo(v2);
+        System.out.println("distance(v1, v2) = " + d);
+        /*
         double d = distance(v1, v2);
         System.out.println("distance(v1, v2) = " + d);
+        */
 
+        v1.scale(2.0);
+        System.out.println("scaled v1 (factor 2) = " + v1);
+        /*
         scale(v1, 2.0);
         System.out.println("scaled v1 (factor 2) = " + Arrays.toString(v1));
+        */
 
+        Vector2D copy = new Vector2D(v1.toArray()[0], v1.toArray()[1]);
+        v1.normalize();
+        System.out.println("v1 vornmalized = " + v1);
+        System.out.println("v1 before normalize = " + copy);
+        System.out.println("length(v1) after normalize = " + v1.length());
+        /*
         double[] copy = toArray(v1);
         normalize(v1);
         System.out.println("v1 normalized = " + Arrays.toString(v1));
         System.out.println("v1 before normalize = " + Arrays.toString(copy));
         System.out.println("length(v1) after normalize = " + length(v1));
+        */
 
+        Vector2D zero = new Vector2D(0,0);
+        System.out.println("isZero(zero) = " + zero.isZero());
+        /*
         double[] zero = new double[] {0, 0};
         System.out.println("isZero(zero) = " + isZero(zero));
+         */
     }
 
     /**
