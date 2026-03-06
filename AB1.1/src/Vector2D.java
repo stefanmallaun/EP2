@@ -26,6 +26,12 @@ public class Vector2D {
         this.x = x;
         this.y = y;
     }
+
+    //inkl. leeren Constructor
+    public Vector2D(){
+        this.x = 0;
+        this.y = 0;
+    }
     //toString zum Anzeigen der Vektoren in folgender Form:
     @Override
     public String toString(){
